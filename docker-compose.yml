@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  myapp:
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - mymongo
+  mymongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data: 
